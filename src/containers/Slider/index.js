@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useData } from '../../contexts/DataContext';
-import { getMonth } from '../../helpers/Date';
+import { useEffect, useState } from "react";
+import { useData } from "../../contexts/DataContext";
+import { getMonth } from "../../helpers/Date";
 
-import './style.scss';
+import "./style.scss";
 
 const Slider = () => {
     const { data } = useData();
@@ -22,7 +22,7 @@ const Slider = () => {
         <div className="SlideCardList">
             {byDateDesc?.map((event, idx) => (
                 <>
-                    <div key={event.title} className={`SlideCard SlideCard--${index === idx ? 'display' : 'hide'}`}>
+                    <div key={event.title} className={`SlideCard SlideCard--${index === idx ? "display" : "hide"}`}>
                         {/* attribut alt modifié afin d'avoir les renseignements correspodants à l'image */}
                         <img src={event.cover} alt={event.title} />
                         <div className="SlideCard__descriptionContainer">
@@ -42,6 +42,8 @@ const Slider = () => {
                                     name="radio-button"
                                     // la variable idx a été remplacé par la variable index du usestate
                                     checked={index === radioIdx}
+                                    // pour erreur console
+                                    readOnly
                                 />
                             ))}
                         </div>
