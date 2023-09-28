@@ -109,8 +109,8 @@ const Page = () => {
                             title={last?.title}
                             date={new Date(last?.date)}
                             small
-                            {/* modification de l'attribut label pour afficher le nom au lieu de boom */}
                             label={last?.type}
+                            // modification de l'attribut label pour afficher le nom au lieu de boom
                         />
                     )}
                 </div>
