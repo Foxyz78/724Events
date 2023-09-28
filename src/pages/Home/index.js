@@ -100,10 +100,8 @@ const Page = () => {
             <footer className="row">
                 <div className="col presta">
                     <h3>Notre derniére prestation</h3>
-                    {/* gestion de l'erreur console pour les props undefined */}
-                    {data === null ? (
-                        "loading"
-                    ) : (
+                    {/* gestion de l'erreur console pour les props undefined  - vérification que last existe w */}
+                    {last && (
                         <EventCard
                             imageSrc={last?.cover}
                             title={last?.title}
