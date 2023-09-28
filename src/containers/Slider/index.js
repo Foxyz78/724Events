@@ -21,8 +21,9 @@ const Slider = () => {
     return (
         <div className="SlideCardList">
             {byDateDesc?.map((event, idx) => (
-                <>
-                    <div key={event.title} className={`SlideCard SlideCard--${index === idx ? "display" : "hide"}`}>
+                // changement de la place de la key d'un niveau
+                <div key={event.title}>
+                    <div className={`SlideCard SlideCard--${index === idx ? "display" : "hide"}`}>
                         {/* attribut alt modifié afin d'avoir les renseignements correspodants à l'image */}
                         <img src={event.cover} alt={event.title} />
                         <div className="SlideCard__descriptionContainer">
@@ -35,9 +36,11 @@ const Slider = () => {
                     </div>
                     <div className="SlideCard__paginationContainer">
                         <div className="SlideCard__pagination">
-                            {byDateDesc.map((_, radioIdx) => (
+                            {byDateDesc.map((radioDot, radioIdx) => (
                                 <input
-                                    key={`${event.id}`}
+                                    // changement du nom de la clé {`${event.id}`} pour la rendre unique par
+                                    // {`radio-${radioDot.title}`} en aoutant le texte radio concaténé avec le titre de radioDot
+                                    key={`radio-${radioDot.title}`}
                                     type="radio"
                                     name="radio-button"
                                     // la variable idx a été remplacé par la variable index du usestate
@@ -48,7 +51,7 @@ const Slider = () => {
                             ))}
                         </div>
                     </div>
-                </>
+                </div>
             ))}
         </div>
     );

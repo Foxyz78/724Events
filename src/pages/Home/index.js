@@ -100,8 +100,19 @@ const Page = () => {
             <footer className="row">
                 <div className="col presta">
                     <h3>Notre derniére prestation</h3>
-                    {/* modification de l'attribut label pour afficher le nom au lieu de boom */}
-                    <EventCard imageSrc={last?.cover} title={last?.title} date={new Date(last?.date)} small label={last?.type} />
+                    {/* gestion de l'erreur console pour les props undefined */}
+                    {data === null ? (
+                        "loading"
+                    ) : (
+                        <EventCard
+                            imageSrc={last?.cover}
+                            title={last?.title}
+                            date={new Date(last?.date)}
+                            small
+                            {/* modification de l'attribut label pour afficher le nom au lieu de boom */}
+                            label={last?.type}
+                        />
+                    )}
                 </div>
                 <div className="col contact">
                     <h3>Contactez-nous</h3>
